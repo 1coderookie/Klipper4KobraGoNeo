@@ -3,13 +3,13 @@ Files for getting Klipper installed and running on the Anycubic Kobra Go &amp; N
   
 ***USE AT YOUR OWN RISK!***
 
-Here you can download the compiled `klipper.bin` and `printer.cfg` for your Anycubic Kobra Go and Neo or at least find links to the belonging `printer.cfg` files of other users.  
+Here you can download the compiled `klipper.bin` and preconfigured `printer.cfg` files for your Anycubic Kobra Go and Neo or at least find links to the belonging `printer.cfg` files of other users.  
 
 Please read the chapter [Klipper (Mod)](https://1coderookie.github.io/KobraGoNeoInsights/firmware/fw_klipper/) of my comprehensive infopage about the Kobra Go and Neo: ["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/).
 
 # How to Setup & Flash
 1. Download the files and rename the file `klipper.bin` to `firmware.bin`.
-2. Copy the `.cfg` files to the home directory of the host where Mainsail/Fluidd/OctoPrint is running on (e.g. on a RaspberryPi it's `/home/pi/`).  
+2. Donwload the specific config file for your printer and rename it to `printer.cfg`. Then copy it to the home directory of the host where Mainsail/Fluidd/OctoPrint is running on (e.g. on a RaspberryPi it's `/home/pi/`).  
 If you're using Mainsail/Fluidd, you can just upload them using the webinterface, if you're using OctoPrint you probably have to SSH into the host.  
 3. Take a mSD card (FAT32 formatted), delete all files on it (you may want to do a backup of them if you're using the card that came with the printer, just in case you'd need them in case you wanna go back to the stock firmware and don't want to download the files from the internet) and copy the `firmware.bin` file onto the card.  
 You have to put the file in the root directory, not in a subdirectory (in other words: just copy it directly onto the card without placing it in a subdirectory). 
