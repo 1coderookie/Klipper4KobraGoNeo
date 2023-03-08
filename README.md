@@ -1,5 +1,5 @@
 # Klipper4KobraGoNeo
-Files for getting Klipper installed and running at the Anycubic Kobra Go &amp; Neo.  
+Files for getting Klipper installed and running on the Anycubic Kobra Go &amp; Neo.  
   
 ***USE AT YOUR OWN RISK!***
 
