@@ -1,6 +1,15 @@
+*Thanks to @[cringegnere]() for offering his `printer.cfg` for the Neo!*
+
 ***USE AT YOUR OWN RISK!***
 
 Choose the `printer.cfg` file for your specific model (Go or Neo) and download it.  
+If you don't find the belonging file for your model in the "cfg" folder here or you want to use different files, see the following links of other users who offer their `printer.cfg`
+- **GO**  
+  - Reddit user [xpeng121](https://www.reddit.com/user/xpeng121/) offers his `printer.cfg` for the Go here: https://pastebin.com/xDF8ChXY
+- **NEO**
+  - @[codeneobee](https://github.com/codeneobee/) offers his `printer.cfg` for the Neo here: https://github.com/codeneobee/kobra-neo-klipper-config
+
+
 If you want, also download the other `.cfg` files (besides the specific `printer.cfg` for your model) and take them as a start for your own settings.  
 
 Copy the `.cfg` files to the home directory of the host where Mainsail/Fluidd/OctoPrint is running on (e.g. on a RaspberryPi it's `/home/pi/`).  
