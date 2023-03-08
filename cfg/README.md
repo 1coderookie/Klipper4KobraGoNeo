@@ -2,7 +2,7 @@
 
 ***USE AT YOUR OWN RISK!***
 
-Choose the `printer.cfg` file for your specific model (Go or Neo) and download it.  
+Choose the `printer.cfg` file for your specific model (Go or Neo) from the cfg folder here, download and rename it to `printer.cfg`.  
 If you don't find the belonging file for your model in the "cfg" folder here or you want to use different files, see the following links of other users who offer their `printer.cfg`
 - **GO**  
   - Reddit user [xpeng121](https://www.reddit.com/user/xpeng121/) offers his `printer.cfg` for the Go here: https://pastebin.com/xDF8ChXY
