@@ -1,3 +1,5 @@
+**Thanks to @[cringegnere](https://github.com/cringegnere) for making the file available!**
+
 ***USE AT YOUR OWN RISK!***
 
 Rename the file `klipper.bin` to `firmware.bin` after downloading it.  
