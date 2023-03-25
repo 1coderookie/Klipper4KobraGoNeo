@@ -1,6 +1,6 @@
 ***USE AT YOUR OWN RISK!***
   
-*Thanks to @[cringegnere](https://github.com/cringegnere) for offering his `printer.cfg` for the Neo here!*  
+*Thanks to @[cringegnere](https://github.com/cringegnere) and @[stuclem47](https://github.com/stuclem47)for offering their `printer.cfg` for the Neo here!*  
 *Thanks to @[xpeng121](https://www.reddit.com/user/xpeng121/) and @[codeneobee](https://github.com/codeneobee/) for offering their `printer.cfg` files (links below)!*  
 
 Choose the `printer.cfg` file for your specific model (Go or Neo) from the cfg folder here, download and rename it to `printer.cfg`.  
