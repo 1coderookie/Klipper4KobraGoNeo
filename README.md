@@ -14,7 +14,7 @@ If you're using Mainsail/Fluidd, you can just upload them using the webinterface
 3. Take a mSD card (FAT32 formatted), delete all files on it (you may want to do a backup of them if you're using the card that came with the printer, just in case you'd need them in case you wanna go back to the stock firmware and don't want to download the files from the internet) and copy the `firmware.bin` file onto the card.  
 You have to put the file in the root directory, not in a subdirectory (in other words: just copy it directly onto the card without placing it in a subdirectory). 
 4. Turn off the printer and insert the card. Then turn on the printer again and wait.  
-You'll see the message "Updating firmware. Please wiat." (I'm not kidding, the typo comes for free with the printer ;) ) - this message *won't* dissapear after the flash procedure is done as the stock control unit isn't supported by Klipper yet. So just give the printer some time and let it sit for 10min.  
+You'll see the message "Updating firmware. Please wait." - this message *won't* dissapear after the flash procedure is done as the stock control unit isn't supported by Klipper yet. So just give the printer some time and let it sit for 10min.  
 5. After that, turn off the printer, take out the card and connect the printer with your host (e.g. RaspberryPi) which is running Mainsail/Fluidd/Octoprint using an USB-C cable. 
 6. After doing so, turn off the printer. It should now be recognized by Mainsail/Fluidd/OctoPrint. If an errorf message like "Can't connect to the MCU." occurs, either click on "restart the firmware" or turn your printer off and on again.  
 
