@@ -11,6 +11,8 @@ If you don't find the belonging file for your model in the "cfg" folder here or 
 - **NEO**
   - @[codeneobee](https://github.com/codeneobee/) offers his `printer.cfg` for the Neo here: https://github.com/codeneobee/kobra-neo-klipper-config
 
+**UPDATE**  
+Thanks to @xiaopeng12138(https://github.com/xiaopeng12138) the cfg-file for the **GO** is now part of the Klipper repo as well: [file `printer-anycubic-kobra-go-2022.cfg`](https://github.com/Klipper3d/klipper/blob/master/config/printer-anycubic-kobra-go-2022.cfg)
 
 <!--
 If you want, also download the other `.cfg` files (besides the specific `printer.cfg` for your model) and take them as a start for your own settings.  
