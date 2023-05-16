@@ -23,6 +23,6 @@ Please read the chapter [Klipper (Mod)](https://1coderookie.github.io/KobraGoNeo
    ``` 
 
 
-**Now you have to adjust the settings in the `printer.cfg` file and proceed with the basic config checks mentioned in the official documentation of Klipper: https://www.klipper3d.org/Config_checks.html**
+**Now you have to adjust the settings in the `printer.cfg` file and proceed with the basic config checks mentioned in the official documentation of Klipper: https://www.klipper3d.org/Config_checks.html - don't skip these steps!**
 
 
