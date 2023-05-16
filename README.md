@@ -8,7 +8,7 @@ Here you can download the compiled `klipper.bin` and preconfigured `printer.cfg`
 Please read the chapter [Klipper (Mod)](https://1coderookie.github.io/KobraGoNeoInsights/firmware/fw_klipper/) of my comprehensive infopage about the Kobra Go and Neo: ["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/).
 
 # How to Setup & Flash
-1. Download all files by *clicking on the green "Code" button, then click "Download ZIP".*  
+1. **Download all files by clicking on the green "Code" button, then click "Download ZIP".**  
 2. Unzip the downloaded folder and rename the file `klipper.bin` in the "bin" folder to `firmware.bin`. <br> *This is the file you'll need to flash your printer with later.*  
 3. Choose the cfg-file in the "cfg" folder you want to use for your printer and rename it to `printer.cfg`. Then copy it to the home directory of the host where Mainsail/Fluidd/OctoPrint is running on (e.g. on a RaspberryPi it's `/home/pi/`). <br> *This is the file that contains the printer specific settings which you'd have to adjust later.* <br> Note: If you're using Mainsail/Fluidd, you can just upload them using the webinterface, if you're using OctoPrint you probably have to SSH into the host.  
 4. Take a microSD card (FAT32 formatted!), delete all files on it (you may want to do a backup of them if you're using the card that came with the printer, just in case you'd need them in case you wanna go back to the stock firmware and don't want to download the files from the internet) and copy the `firmware.bin` file onto the card. <br> You have to put the file in the root directory, not in a subdirectory (in other words: just copy it directly onto the card without placing it in a subdirectory). 
