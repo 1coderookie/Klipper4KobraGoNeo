@@ -17,11 +17,10 @@ Please read the chapter [Klipper (Mod)](https://1coderookie.github.io/KobraGoNeo
 5. Turn off the printer and insert the card. Then turn on the printer again and wait. <br> You'll see the message "Updating firmware. Please wait." - this message *won't* dissapear after the flash procedure is done as the stock control unit isn't supported by Klipper yet. So just give the printer some time and let it sit for 10min.  
 6. After that, turn off the printer, take out the card and connect the printer with your host (e.g. RaspberryPi) which is running Mainsail/Fluidd/Octoprint using an USB-C cable. 
 7. After doing so, turn off the printer. It should now be recognized by Mainsail/Fluidd/OctoPrint. If an error message like "Can't connect to the MCU." occurs, either click on "restart the firmware" or turn your printer off and on again. <br> If it still can't connect, you'd have to determine the serial port where your printer is connected to (see the official [Klipper installation documentation](https://www.klipper3d.org/Installation.html) for further information) and adjust the setting in the `printer.cfg` accordingly. This is the belonging section: <br> 
-```[mcu]
-serial: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
-restart_method: command
-``` 
-<br> 
+  ```[mcu]
+  serial: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+  restart_method: command
+  ``` 
 
 
 **Now you have to adjust the settings in the `printer.cfg` file and proceed with the basic config checks mentioned in the official documentation of Klipper: https://www.klipper3d.org/Config_checks.html**
