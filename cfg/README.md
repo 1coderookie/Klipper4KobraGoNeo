@@ -31,6 +31,7 @@ See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)]
 ---
 
 **Credits:**  
-- *Thanks to @[cringegnere](https://github.com/cringegnere), @[stuclem47](https://github.com/stuclem47) and @[mackmind](https://github.com/mackmind) for offering their `printer.cfg` for the **Neo** here as well!*  
+- *Thanks to @[cringegnere](https://github.com/cringegnere), @[stuclem47](https://github.com/stuclem47) and @[mackmind](https://github.com/mackmind) for offering their `printer.cfg` for the **Neo** here as well!*
+- *Thanks to @[mackmind](https://github.com/mackmind) for offering his `printer.cfg` for the **Creality SonicPad at the Neo** here as well!*  
 - *Thanks to @[xpeng121](https://www.reddit.com/user/xpeng121/) for having added the example `printer.cfg` for the **Go** to the official Klipper repo!*   
 - *Thanks to @[Joseph Montanez](https://github.com/joseph-montanez) for offering his `printer.cfg` for the **Go** and for the **BTT SKR Pico at the Go** here as well!*  
