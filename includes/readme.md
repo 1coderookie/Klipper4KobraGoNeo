@@ -17,5 +17,6 @@ So keep this in mind when using these commands.
 
 ---
 
-**Credits:**
+**Credits:**  
+
 *- Thanks to @[DexteR-mask](https://github.com/DexteR-mask) for offering his `g-code.cfg` here as well!*
