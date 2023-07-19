@@ -25,9 +25,9 @@ See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)]
 
 ***ATTENTION***   
 
-**- DON'T start trying to print right away!**  
-**- You have to adjust the settings in the `printer.cfg` file to your system and needs and proceed with the basic config checks mentioned in the official documentation of Klipper: https://www.klipper3d.org/Config_checks.html**  
-**- Check all settings, there might be mistakes and wrong settings!**
+- *DON'T start trying to print right away!*    
+- You have to adjust the settings in the `printer.cfg` file to your system and needs and proceed with the basic config checks mentioned in the official documentation of Klipper: https://www.klipper3d.org/Config_checks.html    
+- Check all settings, there might be mistakes and wrong settings!  
 
 
 ---
