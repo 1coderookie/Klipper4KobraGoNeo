@@ -27,7 +27,11 @@ See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)]
 
 - *DON'T start trying to print right away!*    
 - You have to adjust the settings in the `printer.cfg` file to your system and needs and proceed with the basic config checks mentioned in the official documentation of Klipper: https://www.klipper3d.org/Config_checks.html    
-- Check all settings, there might be mistakes and wrong settings!  
+- Check all settings, there might be mistakes and wrong settings!
+
+- *The file `regular-KOBRA_Sad_Kaleidoscope3286_printer.cfg` is for the ***regular KOBRA*** only!*  
+  *Don't use it with the Kobra Go or Kobra Neo!*  
+  *If you want to use Klipper on the regular Kobra, you need to resolder one SMD resistor (R65 to R66). Read here: https://klipper.discourse.group/t/support-for-hdsc-chips-hc32f460/2860/54 (look at the second image Steve Gotthardt posted there (December 18, 2022, 3:16pm)).* 
 
 
 ---
@@ -36,4 +40,5 @@ See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)]
 - *Thanks to @[cringegnere](https://github.com/cringegnere), @[DexteR-mask](https://github.com/DexteR-mask), @[mackmind](https://github.com/mackmind) and @[stuclem47](https://github.com/stuclem47) for offering their `printer.cfg` for the **Neo** here as well!*
 - *Thanks to @[mackmind](https://github.com/mackmind) for offering his `printer.cfg` for the **Creality SonicPad at the Neo** here as well!*  
 - *Thanks to @[xpeng121](https://www.reddit.com/user/xpeng121/) for having added the example `printer.cfg` for the **Go** to the official Klipper repo!*   
-- *Thanks to @[Joseph Montanez](https://github.com/joseph-montanez) for offering his `printer.cfg` for the **Go** and for the **BTT SKR Pico at the Go** here as well!*  
+- *Thanks to @[Joseph Montanez](https://github.com/joseph-montanez) for offering his `printer.cfg` for the **Go** and for the **BTT SKR Pico at the Go** here as well!*
+- *Thanks to reddit user [Sad_Kaleidoscope3286](https://reddit.com/user/Sad_Kaleidoscope3286) for offering his `printer.cfg` for the **regular Kobra** here as well!*  
