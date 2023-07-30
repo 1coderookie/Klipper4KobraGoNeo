@@ -42,3 +42,7 @@ See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)]
 - *Thanks to @[xpeng121](https://www.reddit.com/user/xpeng121/) for having added the example `printer.cfg` for the **Go** to the official Klipper repo!*   
 - *Thanks to @[Joseph Montanez](https://github.com/joseph-montanez) for offering his `printer.cfg` for the **Go** and for the **BTT SKR Pico at the Go** here as well!*
 - *Thanks to reddit user [Sad_Kaleidoscope3286](https://reddit.com/user/Sad_Kaleidoscope3286) for offering his `printer.cfg` for the **regular Kobra** here as well!*  
+
+---
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U6U5NPB51)  
