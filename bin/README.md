@@ -8,3 +8,7 @@ See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)]
 
 **DON'T start trying to print right away!**  
 **You have to adjust the settings in the `printer.cfg` file and proceed with the basic config checks mentioned in the official documentation of Klipper: https://www.klipper3d.org/Config_checks.html**
+
+---
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U6U5NPB51)  
