@@ -20,3 +20,7 @@ So keep this in mind when using these commands.
 **Credits:**  
 
 - *Thanks to @[DexteR-mask](https://github.com/DexteR-mask) for offering his `g-code.cfg` here as well!*
+
+---
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U6U5NPB51)  
