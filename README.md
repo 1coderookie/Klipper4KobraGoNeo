@@ -7,7 +7,10 @@ Here you can download the compiled `klipper.bin` and preconfigured `printer.cfg`
 
 ---
 
-Please read the chapter [Klipper (MOD)](https://1coderookie.github.io/KobraGoNeoInsights/firmware/fw_klipper/) at my comprehensive infopage about the Kobra Go and Kobra Neo: ["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/).
+**Please read the chapter [Klipper (MOD)](https://1coderookie.github.io/KobraGoNeoInsights/firmware/fw_klipper/) at my comprehensive infopage about the Kobra Go and Kobra Neo:**  
+***["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/)***.
+
+---
 
 ***Before attempting the installation process, please read the official [Klipper installation documentation](https://www.klipper3d.org/Installation.html) as well!***  
 
