@@ -1,4 +1,4 @@
-**Thanks to @[cringegnere](https://github.com/cringegnere) for making the file available!**
+**Thanks to @[jokubasver](https://github.com/jokubasver) for making the already compiled `klipper.bin` file available!**
 
 ***USE AT YOUR OWN RISK!***
 
