@@ -28,7 +28,7 @@ See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)]
 
 *Note:*    
 *I decided with a heavy heart that I had to remove cfg files for the Neo due to the fact that wrong and obsolete settings have been used and that the files weren't maintained by the users who contributed them.*  
-*Users reached out to me reporting problems and due to limited time and the fact that the cfg files were pretty much the same anyway I decided to not modify and maintain those files myself.*  
+*Users reached out to me reporting problems and due to limited time and the fact that the cfg files were pretty much the same anyway I decided to not further modify and maintain those files myself.*  
 *So there's only the one example cfg file for the Neo available now which is my own.*     
 *However, many thanks to those who contributed their files initially!*   
 
