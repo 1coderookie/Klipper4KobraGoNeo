@@ -23,8 +23,9 @@ Here you can download the compiled `klipper.bin` and preconfigured `printer.cfg`
 4. Take a microSD card (FAT32 formatted!), delete all files on it (you may want to do a backup of them if you're using the card that came with the printer, just in case you'd need them in case you wanna go back to the stock firmware and don't want to download the files from the internet) and copy the `firmware.bin` file onto the card. <br> You have to put the file in the root directory, not in a subdirectory (in other words: just copy it directly onto the card without placing it in a subdirectory). 
 5. Turn off the printer and insert the card. Then turn on the printer again and wait. <br> You usually won't see any message being displayed at the display of the control unit, it'll just stay black. So just give the printer some time and let it sit for 5-10min.  
 6. After that, turn off the printer, take out the card and connect the printer with your host (e.g. RaspberryPi) which is running Mainsail/Fluidd/Octoprint using an USB-C cable. 
-7. After doing so, turn off the printer. It should now be recognized by Mainsail/Fluidd/OctoPrint. If an error message like "Can't connect to the MCU." occurs, either click on "restart the firmware" or turn your printer off and on again. <br> If it still can't connect, you'd have to determine the serial port of your host where the printer is connected to (see the official [Klipper installation documentation](https://www.klipper3d.org/Installation.html) for further information) and adjust the setting in the `printer.cfg` accordingly. This is the belonging section: <br> 
-   ```[mcu]
+7. After doing so, turn on the printer. It should now be recognized by Mainsail/Fluidd/OctoPrint. If an error message like "Can't connect to the MCU." occurs, either click on "restart the firmware" or turn your printer off and on again. <br> If it still can't connect, you'd have to determine the serial port of your host where the printer is connected to (see the official [Klipper installation documentation](https://www.klipper3d.org/Installation.html) for further information) and adjust the setting in the `printer.cfg` accordingly. <br> This is the belonging section: <br> 
+   ```
+   [mcu]
    serial: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
    restart_method: command
    ``` 
