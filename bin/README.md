@@ -6,7 +6,7 @@
 
 *Thanks to*  
 - *@[jokubasver](https://github.com/jokubasver) (`klipper_v0.11.0-267-g01ed8096.bin`)*  
-- *@[kcalbxof](https://github.com/kcalbxof) (`klipper_v0.11.0-304-gf7567a0d.bin`)*
+- *@[kcalbxof](https://github.com/kcalbxof) (`klipper_v0.11.0-304-gf7567a0d.bin` -> newer version)*
 
 *for making the already compiled `klipper.bin` files available!*  
 
