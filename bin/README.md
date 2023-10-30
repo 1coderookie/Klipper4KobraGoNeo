@@ -2,9 +2,13 @@
 
 ---
 
-**Rename the files `klipper_v0.11.0-267-g01ed8096.bin` / `klipper_v0.11.0-304-gf7567a0d.bin` to `firmware.bin` after downloading it.**  
+**Rename the files `klipper_v0.11.0-267-g01ed8096.bin` / `klipper_v0.11.0-304-gf7567a0d.bin` to `firmware.bin` after downloading it!**  
 
-*Thanks to @[jokubasver](https://github.com/jokubasver) (`klipper_v0.11.0-267-g01ed8096.bin`) and @kcalbxof[https://github.com/kcalbxof] (`klipper_v0.11.0-304-gf7567a0d.bin`) for making the already compiled `klipper.bin` files available!*  
+*Thanks to*  
+- *@[jokubasver](https://github.com/jokubasver) (`klipper_v0.11.0-267-g01ed8096.bin`)*  
+- *@[kcalbxof](https://github.com/kcalbxof) (`klipper_v0.11.0-304-gf7567a0d.bin`)*
+
+*for making the already compiled `klipper.bin` files available!*  
 
 See the [main readme file](../README.md) and/or read the chapter [Klipper (Mod)](https://1coderookie.github.io/KobraGoNeoInsights/firmware/fw_klipper/) of my comprehensive infopage about the Kobra Go and Neo: ["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/) for further instructions.
 
