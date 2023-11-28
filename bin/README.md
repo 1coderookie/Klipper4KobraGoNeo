@@ -2,13 +2,14 @@
 
 ---
 
-**Rename the file `klipper_v0.11.0-267-g01ed8096.bin` / `klipper_v0.11.0-304-gf7567a0d.bin` to `firmware.bin` after downloading it!**  
+**Rename the file `klipper_v0.11.0-267-g01ed8096.bin` / `klipper_v0.11.0-304-gf7567a0d.bin` / `klipper_v0.12.0-10-gea2f6bc0.bin` to `firmware.bin` after downloading it!**  
 
 ---
 
 *Thanks to*  
-- *@[jokubasver](https://github.com/jokubasver) (`klipper_v0.11.0-267-g01ed8096.bin`)*  
-- *@[kcalbxof](https://github.com/kcalbxof) (`klipper_v0.11.0-304-gf7567a0d.bin` -> newer version)*
+- *[jokubasver](https://github.com/jokubasver) (`klipper_v0.11.0-267-g01ed8096.bin`)*  
+- *[kcalbxof](https://github.com/kcalbxof) (`klipper_v0.11.0-304-gf7567a0d.bin`)*
+- *[kmazurek93](https://github.com/kmazurek93) (`klipper_v0.12.0-10-gea2f6bc0.bin` -> latest version)*
 
 *for making the already compiled `klipper.bin` files available!*  
 
