@@ -1,21 +1,20 @@
 # Klipper4KobraGoNeo
-Files for getting Klipper installed and running on Anycubic's Kobra Go and Kobra Neo.  
-  
-Here you can download the compiled `klipper.bin` and preconfigured `printer.cfg` files for your Anycubic Kobra Go and Neo or at least find links to the belonging `printer.cfg` files of other users.  
+Here you can find some preconfigured `printer.cfg` files (or links) for your Anycubic Kobra Go and Neo.  
 
-***USE AT YOUR OWN RISK!***
-
----
-
-**Please read the chapter [Klipper (MOD)](https://1coderookie.github.io/KobraGoNeoInsights/firmware/fw_klipper/) at my comprehensive infopage about the Kobra Go and Kobra Neo:**  
-***["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/)***.
+***USE AT YOUR OWN RISK!***  
+*DON'T use any example cfg and try to start printing right away! Always do calibration checks and adjust the settings to your needs!*
 
 ---
 
-***Before attempting the installation process, please read the official [Klipper installation documentation](https://www.klipper3d.org/Installation.html) as well!***  
+***Before attempting the installation process, please read the official [Klipper installation documentation](https://www.klipper3d.org/Installation.html)!***  
 
 ---
 
+*Please read the chapter [Klipper (MOD)](https://1coderookie.github.io/KobraGoNeoInsights/firmware/fw_klipper/) at my comprehensive infopage about the Kobra Go and Kobra Neo:*  
+***["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/)***.  
+
+---
+<!--  
 # How to Setup & Flash
 1. **Download all files by clicking on the green "Code" button, then click "Download ZIP".**  
 2. Unzip the downloaded folder and rename the file `klipper.bin` in the "bin" folder to `firmware.bin`.  
@@ -43,9 +42,8 @@ Here you can download the compiled `klipper.bin` and preconfigured `printer.cfg`
 9. You also have to adjust the settings like nozzle diameter, rotation_distance for the extruder (aka e-steps), settings for retractions, Pressure Advance, Input Shaping and so on.
 10. Again: *DON'T use any example cfg and try to start printing right away!*  
 
----
+--->  
 
-*If you want to ***contribute*** a certain configuration, include file or macro, please send me an [email](mailto:3dneo@quantentunnel.de) - please don't use Pull Requests for that! Thanks!* 
   
 *If you find this repository useful, please consider ***recommending it*** to others. This will make the community aware of it and help other users. Thanks!*  
 
