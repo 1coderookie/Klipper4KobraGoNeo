@@ -14,6 +14,14 @@ Here you can find some preconfigured `printer.cfg` files (or links) for your Any
 ***["KobraGoNeo Insights"](https://1coderookie.github.io/KobraGoNeoInsights/)***.  
 
 ---
+
+## Stock display (Kobra Neo)
+
+The stock TFT and rotary knob of the Kobra Neo can be used as a Klipper screen (status page,
+menus, G-code preview, English/Spanish). It needs a patched MCU firmware, because upstream
+Klipper has no SPI support for the HC32F460. See [`stock_display/`](stock_display/README.md).
+
+---
 <!--  
 # How to Setup & Flash
 1. **Download all files by clicking on the green "Code" button, then click "Download ZIP".**  
