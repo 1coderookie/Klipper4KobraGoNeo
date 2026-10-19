@@ -1,0 +1,230 @@
+diff --git a/src/Makefile b/src/Makefile
+index 90466f6b7..27e58eb37 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -4,7 +4,7 @@ src-y += sched.c command.c basecmd.c debugcmds.c
+ src-$(CONFIG_HAVE_GPIO) += initial_pins.c gpiocmds.c stepper.c endstop.c \
+     trsync.c
+ src-$(CONFIG_WANT_ADC) += adccmds.c
+-src-$(CONFIG_WANT_SPI) += spicmds.c
++src-$(CONFIG_WANT_SPI) += spicmds.c spi_tft.c
+ src-$(CONFIG_WANT_I2C) += i2ccmds.c
+ src-$(CONFIG_WANT_HARD_PWM) += pwmcmds.c
+ src-$(CONFIG_HAVE_GPIO_SDIO) += sdiocmds.c
+diff --git a/src/hc32f460/Kconfig b/src/hc32f460/Kconfig
+index e93edc50e..d835caeb1 100644
+--- a/src/hc32f460/Kconfig
++++ b/src/hc32f460/Kconfig
+@@ -9,6 +9,7 @@ config HC32F460_SELECT
+     select HAVE_GPIO_ADC
+     select HAVE_STRICT_TIMING
+     select HAVE_GPIO_HARD_PWM
++    select HAVE_GPIO_SPI
+     select HAVE_STEPPER_OPTIMIZED_BOTH_EDGE
+     # Software divide used by Huada SDK
+     select HAVE_SOFTWARE_DIVIDE_REQUIRED
+diff --git a/src/hc32f460/Makefile b/src/hc32f460/Makefile
+index 2d2d50081..e60b0a1fd 100644
+--- a/src/hc32f460/Makefile
++++ b/src/hc32f460/Makefile
+@@ -12,6 +12,7 @@ CFLAGS_klipper.elf += -T $(OUT)src/generic/armcm_link.ld
+ $(OUT)klipper.elf: $(OUT)src/generic/armcm_link.ld
+ 
+ # Add source files
++src-$(CONFIG_WANT_SPI) += hc32f460/spi.c ../lib/hc32f460/driver/src/hc32f460_spi.c
+ src-y += hc32f460/main.c
+ src-y += hc32f460/interrupts.c
+ src-y += hc32f460/gpio.c
+diff --git a/src/hc32f460/spi.c b/src/hc32f460/spi.c
+new file mode 100644
+index 000000000..763cf772a
+--- /dev/null
++++ b/src/hc32f460/spi.c
+@@ -0,0 +1,121 @@
++// SPI support on HC32F460 (SPI2 on PC5/PC4, the TFT bus of the Anycubic Kobra Neo)
++//
++// Send-only transfers work like the Anycubic firmware (wait for the
++// transmit buffer, never for the receive buffer). Every wait has a 1 ms
++// limit and shuts down with a message instead of hanging the MCU.
++//
++// This file may be distributed under the terms of the GNU GPLv3 license.
++
++#include <string.h> // memset
++#include "autoconf.h" // CONFIG_CLOCK_FREQ
++#include "board/gpio.h" // spi_setup
++#include "board/misc.h" // timer_read_time
++#include "command.h" // shutdown
++#include "sched.h" // sched_shutdown
++#include "hc32f460_spi.h"
++#include "hc32f460_pwc.h"
++#include "hc32f460_gpio.h"
++
++DECL_ENUMERATION("spi_bus", "spi2_PC5_PC4", 0);
++DECL_CONSTANT_STR("BUS_PINS_spi2_PC5_PC4", "PC5,PC4");
++
++#define SPI_WAIT(cond, msg) do {                                  \
++        uint32_t end_ = timer_read_time() + timer_from_us(1000);  \
++        while (!(cond))                                           \
++            if (!timer_is_before(timer_read_time(), end_))        \
++                shutdown(msg);                                    \
++    } while (0)
++
++struct spi_config
++spi_setup(uint32_t bus, uint8_t mode, uint32_t rate)
++{
++    if (bus != 0 || mode > 3)
++        shutdown("Invalid spi_setup parameters");
++    M4_SPI_TypeDef *spi = M4_SPI2;
++    PWC_Fcg1PeriphClockCmd(PWC_FCG1_PERIPH_SPI2, Enable);
++    PORT_SetFunc(PortC, Pin05, Func_Spi2_Sck, Disable);
++    PORT_SetFunc(PortC, Pin04, Func_Spi2_Mosi, Disable);
++
++    // The bootloader sets up the clocks: SPI runs from PCLK1 / (2 << div)
++    uint32_t pclk1 = CONFIG_CLOCK_FREQ >> M4_SYSREG->CMU_SCFGR_f.PCLK1S;
++    uint32_t div = 0;
++    while (div < 7 && (pclk1 >> (div + 1)) > rate)
++        div++;
++
++    stc_spi_init_t cfg;
++    memset(&cfg, 0, sizeof(cfg));
++    cfg.enClkDiv = (en_spi_clk_div_t)div;
++    cfg.enFrameNumber = SpiFrameNumber1;
++    cfg.enDataLength = SpiDataLengthBit8;
++    cfg.enFirstBitPosition = SpiFirstBitPositionMSB;
++    cfg.enSckPolarity = (mode & 2) ? SpiSckIdleLevelHigh : SpiSckIdleLevelLow;
++    cfg.enSckPhase = ((mode & 1) ? SpiSckOddChangeEvenSample
++                      : SpiSckOddSampleEvenChange);
++    cfg.enReadBufferObject = SpiReadReceiverBuffer;
++    // Same settings as the Anycubic TFT driver; chip select is a regular
++    // gpio handled by spicmds.c, NSS0 is not routed to any pin
++    cfg.enWorkMode = SpiWorkMode4Line;
++    cfg.enTransMode = SpiTransFullDuplex;
++    cfg.enMasterSlaveMode = SpiModeMaster;
++    cfg.enCommAutoSuspendEn = Disable;
++    cfg.enModeFaultErrorDetectEn = Disable;
++    cfg.enParitySelfDetectEn = Disable;
++    cfg.enParityEn = Disable;
++    cfg.enParity = SpiParityEven;
++    cfg.stcDelayConfig.enSsSetupDelayOption = SpiSsSetupDelayCustomValue;
++    cfg.stcDelayConfig.enSsSetupDelayTime = SpiSsSetupDelaySck1;
++    cfg.stcDelayConfig.enSsHoldDelayOption = SpiSsHoldDelayCustomValue;
++    cfg.stcDelayConfig.enSsHoldDelayTime = SpiSsHoldDelaySck1;
++    cfg.stcDelayConfig.enSsIntervalTimeOption = SpiSsIntervalCustomValue;
++    cfg.stcDelayConfig.enSsIntervalTime = SpiSsIntervalSck6PlusPck2;
++    cfg.stcSsConfig.enSsValidBit = SpiSsValidChannel0;
++    cfg.stcSsConfig.enSs0Polarity = SpiSsLowValid;
++    SPI_Init(spi, &cfg);
++    SPI_Cmd(spi, Enable);
++    return (struct spi_config){ .spi = spi, .spi_cr1 = spi->CFG2 };
++}
++
++void
++spi_prepare(struct spi_config config)
++{
++    M4_SPI_TypeDef *spi = config.spi;
++    if (spi->CFG2 != config.spi_cr1) {
++        SPI_Cmd(spi, Disable);
++        spi->CFG2 = config.spi_cr1;
++        SPI_Cmd(spi, Enable);
++    }
++}
++
++static void
++spi_flush(M4_SPI_TypeDef *spi)
++{
++    while (SPI_GetFlag(spi, SpiFlagReceiveBufferFull) == Set)
++        (void)SPI_ReceiveData8(spi);
++    SPI_ClearFlag(spi, SpiFlagOverloadError);
++    SPI_ClearFlag(spi, SpiFlagModeFaultError);
++}
++
++void
++spi_transfer(struct spi_config config, uint8_t receive_data
++             , uint8_t len, uint8_t *data)
++{
++    M4_SPI_TypeDef *spi = config.spi;
++    spi_flush(spi);
++    while (len--) {
++        SPI_WAIT(SPI_GetFlag(spi, SpiFlagSendBufferEmpty) == Set,
++                 "SPI timeout waiting for TDEF");
++        SPI_SendData8(spi, *data);
++        if (receive_data) {
++            SPI_WAIT(SPI_GetFlag(spi, SpiFlagReceiveBufferFull) == Set,
++                     "SPI timeout waiting for RDFF");
++            *data = SPI_ReceiveData8(spi);
++        }
++        data++;
++    }
++    // Let the last byte leave before spicmds.c releases chip select
++    SPI_WAIT(SPI_GetFlag(spi, SpiFlagSpiIdle) == Set,
++             "SPI timeout waiting for idle");
++    if (SPI_GetFlag(spi, SpiFlagModeFaultError) == Set)
++        shutdown("SPI mode fault");
++    spi_flush(spi);
++}
+diff --git a/src/spi_tft.c b/src/spi_tft.c
+new file mode 100644
+index 000000000..af054aafa
+--- /dev/null
++++ b/src/spi_tft.c
+@@ -0,0 +1,60 @@
++// Pixels generated on the MCU for SPI TFT displays (fills and 1-bit glyphs)
++//
++// The host sets the window and the data/command pin; these commands only
++// clock out pixel data, so a full screen costs a few bytes on the wire.
++//
++// This file may be distributed under the terms of the GNU GPLv3 license.
++
++#include "command.h" // DECL_COMMAND
++#include "sched.h" // shutdown
++#include "spicmds.h" // spidev_transfer
++
++#define FILL_CHUNK 32     // pixels per transfer (64 bytes)
++#define GLYPH_MAX_SCALE 4 // 8 pixels * 4 * 2 bytes = 64 bytes per row
++
++void
++command_spi_fill(uint32_t *args)
++{
++    struct spidev_s *spi = spidev_oid_lookup(args[0]);
++    uint16_t color = args[1];
++    uint_fast16_t count = args[2];
++    uint8_t buf[FILL_CHUNK * 2];
++    uint_fast8_t i;
++    for (i = 0; i < sizeof(buf); i += 2) {
++        buf[i] = color >> 8;
++        buf[i + 1] = color;
++    }
++    while (count) {
++        uint_fast16_t n = count > FILL_CHUNK ? FILL_CHUNK : count;
++        spidev_transfer(spi, 0, n * 2, buf);
++        count -= n;
++    }
++}
++DECL_COMMAND(command_spi_fill, "spi_fill oid=%c color=%hu count=%hu");
++
++void
++command_spi_glyph(uint32_t *args)
++{
++    struct spidev_s *spi = spidev_oid_lookup(args[0]);
++    uint16_t fg = args[1], bg = args[2];
++    uint_fast8_t scale = args[3];
++    uint_fast8_t rows = args[4];
++    uint8_t *bits = command_decode_ptr(args[5]);
++    if (!scale || scale > GLYPH_MAX_SCALE)
++        shutdown("spi_glyph scale out of range");
++    uint8_t line[8 * GLYPH_MAX_SCALE * 2];
++    uint_fast8_t r, b, s, p;
++    for (r = 0; r < rows; r++) {
++        for (b = 0, p = 0; b < 8; b++) {
++            uint16_t c = bits[r] & (0x80 >> b) ? fg : bg;
++            for (s = 0; s < scale; s++) {
++                line[p++] = c >> 8;
++                line[p++] = c;
++            }
++        }
++        for (s = 0; s < scale; s++)
++            spidev_transfer(spi, 0, p, line);
++    }
++}
++DECL_COMMAND(command_spi_glyph,
++             "spi_glyph oid=%c fg=%hu bg=%hu scale=%c bits=%*s");
